@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>System Obsługi Szkód</title>
+</head>
+
+<body>
+
+<div id="main-container" class="container-fluid">
+
+    <div class="header clearfix">
+        <div class="logo">
+            <span>CRM</span>
+        </div>
+
+        <div class="user-info">
+            <span>Zalogowany jako:</span>
+            <strong>operator01</strong>
+        </div>
+    </div>
+
+
+    <div class="navigation">
+        <ul>
+            <li><a href="/home">Strona główna</a></li>
+            <li><a href="/claims">Szkody</a></li>
+            <li><a href="/customers">Klienci</a></li>
+            <li><a href="/reports">Raporty</a></li>
+        </ul>
+    </div>
+
+
+    <div class="content-wrapper">
+
+        <div class="breadcrumb">
+            <span>Obsługa szkód</span>
+            <span> &gt; </span>
+            <span>Szkoda</span>
+            <span> &gt; </span>
+            <strong>ABC/123456/2026</strong>
+        </div>
+
+
+        <div class="panel panel-default claim-panel">
+
+            <div class="panel-heading">
+                <h2>Informacje o szkodzie</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row form-row">
+                    <div class="col-label">
+                        <label>Numer szkody:</label>
+                    </div>
+
+                    <div class="col-value">
+                        <div class="field-wrapper">
+                            <span class="form-control readonly">
+                                ABC/123456/2026
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row form-row">
+                    <div class="col-label">
+                        <label>Data zgłoszenia:</label>
+                    </div>
+
+                    <div class="col-value">
+                        <div class="field-wrapper">
+                            <span class="form-control readonly">02.10.2026</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row form-row">
+                    <div class="col-label">
+                        <label>Status:</label>
+                    </div>
+
+                    <div class="col-value">
+                        <div class="field-wrapper">
+                            <span class="status status-open">W toku</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-default customer-panel">
+
+            <div class="panel-heading">
+                <h2>Dane klienta</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row form-row customer-data">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label>Imię i nazwisko</label>
+
+                            <div class="input-wrapper">
+                                <span class="form-control">
+                                    Jan Kowalski
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Adres e-mail</label>
+
+                            <div class="input-wrapper">
+                                <span class="form-control email-value">
+                                    jan.kowalski@example.com
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label>Telefon</label>
+
+                            <div class="input-wrapper">
+                                <span class="form-control">
+                                    +48 501 234 567
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Numer klienta</label>
+
+                            <div class="input-wrapper">
+                                <span class="form-control">
+                                    KLI-987654
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-default vehicle-panel">
+
+            <div class="panel-heading">
+                <h2>Pojazd</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="vehicle-information">
+
+                    <div class="vehicle-row">
+                        <div class="vehicle-label">
+                            <span>Marka:</span>
+                        </div>
+
+                        <div class="vehicle-value">
+                            <span>Opel</span>
+                        </div>
+                    </div>
+
+
+                    <div class="vehicle-row">
+                        <div class="vehicle-label">
+                            <span>Model:</span>
+                        </div>
+
+                        <div class="vehicle-value">
+                            <span>Astra H GTC</span>
+                        </div>
+                    </div>
+
+
+                    <div class="vehicle-row">
+                        <div class="vehicle-label">
+                            <span>Numer rejestracyjny:</span>
+                        </div>
+
+                        <div class="vehicle-value">
+                            <span class="registration-number">DW 12345</span>
+                        </div>
+                    </div>
+
+
+                    <div class="vehicle-row">
+                        <div class="vehicle-label">
+                            <span>VIN:</span>
+                        </div>
+
+                        <div class="vehicle-value">
+                            <span class="vin">
+                                W0L0AHL0861234567
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="vehicle-row">
+                        <div class="vehicle-label">
+                            <span>Rok produkcji:</span>
+                        </div>
+
+                        <div class="vehicle-value">
+                            <span>2006</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-default accident-panel">
+
+            <div class="panel-heading">
+                <h2>Zdarzenie</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="event-data">
+
+                    <table class="table table-bordered">
+
+                        <tbody>
+
+                            <tr>
+                                <td class="label-cell">
+                                    Data zdarzenia
+                                </td>
+
+                                <td class="value-cell">
+                                    <span>30.09.2026</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="label-cell">
+                                    Miejsce zdarzenia
+                                </td>
+
+                                <td class="value-cell">
+                                    <span>Wrocław, ul. Legnicka</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="label-cell">
+                                    Rodzaj zdarzenia
+                                </td>
+
+                                <td class="value-cell">
+                                    <span>Kolizja drogowa</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-default documents-panel">
+
+            <div class="panel-heading">
+                <h2>Dokumenty</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <ul class="documents-list">
+
+                    <li class="document-item">
+                        <span class="document-name">Oświadczenie sprawcy.pdf</span>
+                        <span class="document-status uploaded">Dodano</span>
+                    </li>
+
+                    <li class="document-item">
+                        <span class="document-name">Dowód rejestracyjny.pdf</span>
+                        <span class="document-status uploaded">Dodano</span>
+                    </li>
+
+                    <li class="document-item">
+                        <span class="document-name">Prawo jazdy.pdf</span>
+                        <span class="document-status missing">Brak</span>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-default notes-panel">
+
+            <div class="panel-heading">
+                <h2>Notatki</h2>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="note old-note">
+                    <span class="note-date">01.10.2026</span>
+                    <span class="note-author">operator02</span>
+                    <p>Klient przesłał dokumentację.</p>
+                </div>
+
+                <div class="note current-note">
+                    <span class="note-date">02.10.2026</span>
+                    <span class="note-author">operator01</span>
+                    <p>Oczekiwanie na dodatkowe dokumenty.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- kompletnie niepotrzebny śmietnik -->
+
+        <div class="system-data" style="display:none;">
+            <span data-id="998877">998877</span>
+            <span>internal-crm-claim</span>
+            <input type="hidden" value="ABC/123456/2026">
+        </div>
+
+        <div class="footer">
+            <span>System Obsługi Szkód v3.17.4</span>
+            <span>© 2014-2026</span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
