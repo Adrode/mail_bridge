@@ -5,37 +5,51 @@ with open("test.html", encoding="UTF-8") as file:
 
 soup = BeautifulSoup(html, "html.parser")
 
-claim_number_label_parent = soup.find("label", string="Numer szkody:").parent.parent
-claim_date_label_parent = soup.find("label", string="Data zgłoszenia:").parent.parent
-claim_status_label_parent = soup.find("label", string="Status:").parent.parent
-claim_name_label_parent = soup.find("label", string="Imię i nazwisko").parent
-claim_email_label_parent = soup.find("label", string="Adres e-mail").parent
-claim_phone_label_parent = soup.find("label", string="Telefon").parent
-claim_brand_span_parent = soup.find("span", string="Marka:").parent.parent
-claim_model_span_parent = soup.find("span", string="Model:").parent.parent
-claim_registration_span = soup.find("span", {"class": "registration-number"}).get_text(strip=True)
-claim_VIN_span = soup.find("span", {"class": "vin"}).get_text(strip=True)
-claim_event_date_td_parent = soup.find("td", string=lambda text: text and text.strip() == "Data zdarzenia").parent
-claim_event_place_td_parent = soup.find("td", string=lambda text: text and text.strip() == "Miejsce zdarzenia").parent
-claim_event_type_td_parent = soup.find("td", string=lambda text: text and text.strip() == "Rodzaj zdarzenia").parent
+def get_basic_claim_data(soup, element):
+  return soup.find("label", string=element).parent.parent
 
+def get_basic_claim_value(soup, val):
+  element = get_basic_claim_data(soup, val)
+  return element.select_one(".col-value .field-wrapper .form-control").get_text(strip=True)
 
-# print(claim_event_place_td_parent)
+def get_user_data(soup, element):
+  return soup.find("label", string=element).parent
+
+def get_user_value(soup, val):
+  element = get_user_data(soup, val)
+  return element.select_one(".input-wrapper .form-control").get_text(strip=True)
+
+def get_car_data(soup, element):
+  return soup.find("span", string=element).parent.parent
+
+def get_car_value(soup, val):
+  element = get_car_data(soup, val)
+  return element.select_one(".vehicle-value").get_text(strip=True)
+
+def get_car_identification_value(soup, element):
+  return soup.find("span", {"class": element}).get_text(strip=True)
+
+def get_claim_event_data(soup, element):
+  return soup.find("td", string=lambda text: text and text.strip() == element).parent
+
+def get_claim_event_value(soup, val):
+  element = get_claim_event_data(soup, val)
+  return element.select_one(".value-cell").get_text(strip=True)
 
 claim = {
-  "Numer szkody": claim_number_label_parent.select_one(".col-value .field-wrapper .form-control").get_text(strip=True),
-  "Data zgłoszenia": claim_date_label_parent.select_one(".col-value .field-wrapper .form-control").get_text(strip=True),
-  "Status": claim_status_label_parent.select_one(".col-value .field-wrapper .status").get_text(strip=True),
-  "Imię i nazwisko": claim_name_label_parent.select_one(".input-wrapper .form-control").get_text(strip=True),
-  "Email": claim_email_label_parent.select_one(".input-wrapper .form-control").get_text(strip=True),
-  "Numer telefonu": claim_phone_label_parent.select_one(".input-wrapper .form-control").get_text(strip=True),
-  "Marka pojazdu": claim_brand_span_parent.select_one(".vehicle-value").get_text(strip=True),
-  "Model pojazdu": claim_model_span_parent.select_one(".vehicle-value").get_text(strip=True),
-  "Numer rejestracyjny": claim_registration_span,
-  "VIN": claim_VIN_span,
-  "Data zdarzenia": claim_event_date_td_parent.select_one(".value-cell").get_text(strip=True),
-  "Miejsce zdarzenia": claim_event_place_td_parent.select_one(".value-cell").get_text(strip=True),
-  "Rodzaj zdarzenia": claim_event_type_td_parent.select_one(".value-cell").get_text(strip=True)
+  "Numer szkody": get_basic_claim_value(soup, "Numer szkody:"),
+  "Data zgłoszenia": get_basic_claim_value(soup, "Data zgłoszenia:"),
+  "Status": get_basic_claim_data(soup, "Status:").select_one(".col-value .field-wrapper .status").get_text(strip=True),
+  "Imię i nazwisko": get_user_value(soup, "Imię i nazwisko"),
+  "Email": get_user_value(soup, "Adres e-mail"),
+  "Numer telefonu": get_user_value(soup, "Telefon"),
+  "Marka pojazdu": get_car_value(soup, "Marka:"),
+  "Model pojazdu": get_car_value(soup, "Model:"),
+  "Numer rejestracyjny": get_car_identification_value(soup, "registration-number"),
+  "VIN": get_car_identification_value(soup, "vin"),
+  "Data zdarzenia": get_claim_event_value(soup, "Data zdarzenia"),
+  "Miejsce zdarzenia": get_claim_event_value(soup, "Miejsce zdarzenia"),
+  "Rodzaj zdarzenia": get_claim_event_value(soup, "Rodzaj zdarzenia")
 }
 
 print(claim)
