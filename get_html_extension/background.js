@@ -1,8 +1,16 @@
-browser.action.onClicked.addListener(async (tab) => {
-    const response = await browser.tabs.sendMessage(
-        tab.id,
-        { action: "getHtml" }
-    );
+browser.action.onClicked.addListener(async () => {
+    console.log("1. Kliknięto ikonę")
 
-    console.log("Otrzymany HTML:", response.html.length);
+    try {
+        const response = await browser.runtime.sendNativeMessage(
+            "mail_generator",
+            {
+                message: "hello"
+            }
+        );
+
+        console.log("2. Odpowiedź Pythona: ", response)
+    } catch (error) {
+        console.error("BŁĄD NATIVE MESSAGE: ", error)
+    }
 });

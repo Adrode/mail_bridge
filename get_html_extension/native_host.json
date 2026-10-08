@@ -1,0 +1,9 @@
+{
+    "name": "mail_generator",
+    "description": "Mail Generator native host",
+    "path": "C:\\dev\\mail_bridge\\get_html_extension\\native_host.bat",
+    "type": "stdio",
+    "allowed_extensions": [
+        "mail_generator@example.com"
+    ]
+}

@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Mozilla\NativeMessagingHosts\mail_generator]
+@="C:\\dev\\mail_bridge\\get_html_extension\\native_host.json"
