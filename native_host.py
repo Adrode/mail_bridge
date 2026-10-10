@@ -1,6 +1,8 @@
 import sys
 import json
 import struct
+import traceback
+from html_parser import parse_html
 
 def read_message():
     raw_length = sys.stdin.buffer.read(4)
@@ -27,7 +29,13 @@ def send_message(message):
 message = read_message()
 
 if message:
+    try:
+        parse_html(message["message"])
+    except Exception:
+        with open("parser_error.log", "w", encoding="UTF-8") as f:
+            f.write(traceback.format_exc())
+
     send_message({
         "reply": "Connection to Python works!",
-        "received": message
+        "received": "HTML received"
     })
