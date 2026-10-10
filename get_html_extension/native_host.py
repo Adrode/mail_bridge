@@ -2,7 +2,6 @@ import sys
 import json
 import struct
 
-
 def read_message():
     raw_length = sys.stdin.buffer.read(4)
 
@@ -15,7 +14,6 @@ def read_message():
 
     return json.loads(message.decode("utf-8"))
 
-
 def send_message(message):
     encoded = json.dumps(message).encode("utf-8")
 
@@ -26,11 +24,10 @@ def send_message(message):
     sys.stdout.buffer.write(encoded)
     sys.stdout.buffer.flush()
 
-
 message = read_message()
 
 if message:
     send_message({
-        "reply": "Python działa!",
+        "reply": "Connection to Python works!",
         "received": message
     })
